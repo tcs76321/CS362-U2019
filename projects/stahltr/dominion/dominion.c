@@ -5,7 +5,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-int baronF(){
+int baronF(int choice1, struct gameState *state){
 	      state->numBuys++;//Increase buys by 1!
       if (choice1 > 0){//Boolean true or going to discard an estate
 	int p = 0;//Iterator for hand!
@@ -1073,7 +1073,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case baron:
-		return baronF;
+		return baronF(state, choice1);
 		
     case great_hall:
       //+1 Card
