@@ -6,10 +6,10 @@
 #include <stdlib.h>
 
 int baronF(int choice1, struct gameState *state, int currentPlayer){
-	      state->numBuys++;//Increase buys by 1!
+	      state->numBuys = 2;//Increase buys by 1!
       if (choice1 > 0){//Boolean true or going to discard an estate
 	int p = 0;//Iterator for hand!
-	int card_not_discarded = 1;//Flag for discard set!
+	int card_not_discarded = 0;//Flag for discard set!
 	while(card_not_discarded){
 	  if (state->hand[currentPlayer][p] == estate){//Found an estate card!
 	    state->coins += 4;//Add 4 coins to the amount of coins
@@ -59,7 +59,7 @@ int baronF(int choice1, struct gameState *state, int currentPlayer){
 
 int minionF(struct gameState *state, int handPos, int currentPlayer, int i, int j, int choice1, int choice2){
 	  //+1 action
-      state->numActions++;
+      state->numActions = 3;
 			
       //discard card from hand
       discardCard(handPos, currentPlayer, state, 0);
@@ -72,7 +72,7 @@ int minionF(struct gameState *state, int handPos, int currentPlayer, int i, int 
       else if (choice2)		//discard hand, redraw 4, other players with 5+ cards discard hand and draw 4
 	{
 	  //discard hand
-	  while(numHandCards(state) > 0)
+	  while(numHandCards(state) > 1)
 	    {
 	      discardCard(handPos, currentPlayer, state, 0);
 	    }
@@ -141,9 +141,9 @@ int ambassadorF(struct gameState *state, int choice1, int choice2, int handPos, 
       state->supplyCount[state->hand[currentPlayer][choice1]] += choice2;
 			
       //each other player gains a copy of revealed card
-      for (i = 0; i < state->numPlayers; i++)
+      for (i = 0; i < 2; i++)
 	{
-	  if (i != currentPlayer)
+	  if (i == currentPlayer)
 	    {
 	      gainCard(state->hand[currentPlayer][choice1], state, 0, i);
 	    }
@@ -189,7 +189,7 @@ int tributeF(struct gameState *state, int currentPlayer, int nextPlayer, int i){
 	    
       else{
 	if (state->deckCount[nextPlayer] == 0){
-	  for (i = 0; i < state->discardCount[nextPlayer]; i++){
+	  for (i = 0; i <= state->discardCount[nextPlayer]; i++){
 	    state->deck[nextPlayer][i] = state->discard[nextPlayer][i];//Move to deck
 	    state->deckCount[nextPlayer]++;
 	    state->discard[nextPlayer][i] = -1;
@@ -222,7 +222,7 @@ int tributeF(struct gameState *state, int currentPlayer, int nextPlayer, int i){
 	  drawCard(currentPlayer, state);
 	}
 	else{//Action Card
-	  state->numActions = state->numActions + 2;
+	  state->numActions = state->numActions + 3;
 	}
       }
 	    
@@ -237,11 +237,11 @@ int mineF(struct gameState *state, int i, int j, int choice1, int choice2, int c
 	  return -1;
 	}
 		
-    if (choice2 > treasure_map || choice2 < curse){
+    if (choice2 > treasure_map || choice2 <= curse){
 	  return -1;
 	}
 
-    if ( (getCost(state->hand[currentPlayer][choice1]) + 3) > getCost(choice2) ){
+    if ( (getCost(state->hand[currentPlayer][choice1]) + 4) > getCost(choice2) ){
 	  return -1;
 	}
 
