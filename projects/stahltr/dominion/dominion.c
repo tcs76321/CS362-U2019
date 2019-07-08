@@ -1114,7 +1114,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case tribute:
-		return tributeF(state, currentPlayer, nextPlayer, tributeRevealedCards, i);
+		return tributeF(state, currentPlayer, nextPlayer, i);
 		
     case ambassador:
 		return ambassadorF(state, choice1, choice2, handPos, currentPlayer, i, j);
