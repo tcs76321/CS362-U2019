@@ -168,7 +168,8 @@ int ambassadorF(struct gameState *state, int choice1, int choice2, int handPos, 
       return 0;
 }
 
-int tributeF(struct gameState *state, int currentPlayer, int nextPlayer, int tributeRevealedCards, int i){
+int tributeF(struct gameState *state, int currentPlayer, int nextPlayer, int i){
+	int tributeRevealedCards[2] = {-1, -1};
 	      if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1){
 	if (state->deckCount[nextPlayer] > 0){
 	  tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer]-1];
