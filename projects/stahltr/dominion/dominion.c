@@ -57,7 +57,7 @@ int baronF(int choice1, struct gameState *state){
       return 0;
 }
 
-int minionF(){
+int minionF(struct gameState *state, int handPos, int currentPlayer, int i, int j){
 	  //+1 action
       state->numActions++;
 			
@@ -109,7 +109,7 @@ int minionF(){
       return 0;
 }
 
-int ambassadorF(){
+int ambassadorF(struct gameState *state, int choice1, int choice2, int handPos, int currentPlayer, int i, int j){
 	      j = 0;		//used to check if player has enough cards to discard
 
       if (choice2 > 2 || choice2 < 0)
@@ -168,7 +168,7 @@ int ambassadorF(){
       return 0;
 }
 
-int tributeF(){
+int tributeF(struct gameState *state, int currentPlayer, int nextPlayer, int tributeRevealedCards, int i){
 	      if ((state->discardCount[nextPlayer] + state->deckCount[nextPlayer]) <= 1){
 	if (state->deckCount[nextPlayer] > 0){
 	  tributeRevealedCards[0] = state->deck[nextPlayer][state->deckCount[nextPlayer]-1];
@@ -229,7 +229,7 @@ int tributeF(){
 		
 }
 
-int mineF(){
+int mineF(struct gameState *state, int i, int j, int choice1, int choice2, int currentPlayer){
 	j = state->hand[currentPlayer][choice1];  //store card we will trash
 
     if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold){
@@ -1022,7 +1022,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return -1;
 			
     case mine:
-		return mineF;
+		return mineF(state, i, j, choice1, choice2, currentPlayer);
 			
     case remodel:
       j = state->hand[currentPlayer][choice1];  //store card we will trash
@@ -1073,7 +1073,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case baron:
-		return baronF(state, choice1);
+		return baronF(choice1, state);
 		
     case great_hall:
       //+1 Card
@@ -1087,7 +1087,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case minion:
-		return minionF;
+		return minionF(state, handPos, currentPlayer, i, j);
 		
     case steward:
       if (choice1 == 1)
@@ -1113,10 +1113,10 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case tribute:
-		return tributeF;
+		return tributeF(state, currentPlayer, nextPlayer, tributeRevealedCards, i);
 		
     case ambassador:
-    return ambassadorF;
+		return ambassadorF(state, choice1, choice2, handPos, currentPlayer, i, j);
 		
     case cutpurse:
 
