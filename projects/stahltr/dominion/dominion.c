@@ -5,7 +5,7 @@
 #include <math.h>
 #include <stdlib.h>
 
-int baronF(int choice1, struct gameState *state){
+int baronF(int choice1, struct gameState *state, int currentPlayer){
 	      state->numBuys++;//Increase buys by 1!
       if (choice1 > 0){//Boolean true or going to discard an estate
 	int p = 0;//Iterator for hand!
@@ -57,7 +57,7 @@ int baronF(int choice1, struct gameState *state){
       return 0;
 }
 
-int minionF(struct gameState *state, int handPos, int currentPlayer, int i, int j){
+int minionF(struct gameState *state, int handPos, int currentPlayer, int i, int j, int choice1, int choice2){
 	  //+1 action
       state->numActions++;
 			
@@ -229,7 +229,7 @@ int tributeF(struct gameState *state, int currentPlayer, int nextPlayer, int tri
 		
 }
 
-int mineF(struct gameState *state, int i, int j, int choice1, int choice2, int currentPlayer){
+int mineF(struct gameState *state, int i, int j, int choice1, int choice2, int currentPlayer, int handPos){
 	j = state->hand[currentPlayer][choice1];  //store card we will trash
 
     if (state->hand[currentPlayer][choice1] < copper || state->hand[currentPlayer][choice1] > gold){
@@ -1022,7 +1022,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return -1;
 			
     case mine:
-		return mineF(state, i, j, choice1, choice2, currentPlayer);
+		return mineF(state, i, j, choice1, choice2, currentPlayer, handPos);
 			
     case remodel:
       j = state->hand[currentPlayer][choice1];  //store card we will trash
@@ -1073,7 +1073,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case baron:
-		return baronF(choice1, state);
+		return baronF(choice1, state, currentPlayer);
 		
     case great_hall:
       //+1 Card
@@ -1087,7 +1087,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 		
     case minion:
-		return minionF(state, handPos, currentPlayer, i, j);
+		return minionF(state, handPos, currentPlayer, i, j, choice1, choice2);
 		
     case steward:
       if (choice1 == 1)
