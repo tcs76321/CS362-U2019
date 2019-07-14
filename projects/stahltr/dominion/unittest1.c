@@ -60,6 +60,7 @@ int main() {
 	testG.coins = 1;
 	testG.hand[currentPlayer][0] = estate;
 	baronF(choice1, &testG, currentPlayer);
+	printf("\n coins are:%d\n", testG.coins);
 	asserttrue(testG.coins == 5);
 	
 	
