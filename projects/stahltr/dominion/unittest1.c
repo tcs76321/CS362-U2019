@@ -43,11 +43,11 @@ int main() {
 	memcpy(&testG, &G, sizeof(struct gameState));
 	choice1 = 0;
 	int currentPlayer = 0;
-	int rrr = &testG->discardCount[0] + 1;
-	&testG->supplyCount[estate] = 2;
+	int rrr = testG->discardCount[0] + 1;
+	testG->supplyCount[estate] = 2;
 	baronF(choice1, &testG, currentPlayer);
-	asserttrue(&testG->supplyCount[estate] == 1);
-	asserttrue(&testG->discardCount[0] == rrr);
+	asserttrue(testG->supplyCount[estate] == 1);
+	asserttrue(testG->discardCount[0] == rrr);
 	
 	printf("\n >>>>> SUCCESS: Testing complete %s <<<<<\n\n", TESTCARD);
 	
