@@ -55,10 +55,10 @@ int main() {
 
 	// copy the game state to a test case
 	memcpy(&testG, &G, sizeof(struct gameState));
-	choice1 = 1
+	choice1 = 1;
 	currentPlayer = 0;
 	testG.coins = 1;
-	testG.hand[currentPlayer][p] = estate;
+	testG.hand[currentPlayer][0] = estate;
 	baronF(choice1, &testG, currentPlayer);
 	asserttrue(testG.coins == 5);
 	
