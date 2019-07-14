@@ -46,8 +46,22 @@ int main() {
 	int rrr = testG.discardCount[0] + 1;
 	testG.supplyCount[estate] = 2;
 	baronF(choice1, &testG, currentPlayer);
-	//asserttrue(testG.supplyCount[estate] == 1);
 	asserttrue(testG.discardCount[0] == rrr);
+	
+	
+	
+	// ----------- TEST 2: --------------
+	printf("TEST 2:If estate in hand\n");
+
+	// copy the game state to a test case
+	memcpy(&testG, &G, sizeof(struct gameState));
+	choice1 = 1
+	currentPlayer = 0;
+	testG.coins = 1;
+	testG.hand[currentPlayer][p] = estate;
+	baronF(choice1, &testG, currentPlayer);
+	asserttrue(testG.coins == 5);
+	
 	
 	printf("\n >>>>> SUCCESS: Testing complete %s <<<<<\n\n", TESTCARD);
 	
