@@ -46,7 +46,7 @@ int main() {
 	int rrr = testG.discardCount[0];
 	testG.supplyCount[estate] = 2;
 	int nextPlayer = 1;
-	tributeF(state, currentPlayer, nextPlayer, i);
+	tributeF(&testG, currentPlayer, nextPlayer, i);
 	//verify that an estate was not removed from supply
 	asserttrue(testG.supplyCount[estate] == 2);
 	//verify that discard count was not increased
@@ -63,7 +63,7 @@ int main() {
 	currentPlayer = 0;
 	testG.coins = 1;
 	testG.hand[currentPlayer][0] = estate;
-	tributeF(state, currentPlayer, nextPlayer, i);
+	tributeF(&testG, currentPlayer, nextPlayer, i);
 	printf("\n coins are:%d\n", testG.coins);
 	//verify that coins were increased by 4
 	asserttrue(testG.coins == 5);
@@ -80,7 +80,7 @@ int main() {
 	testG.supplyCount[estate] = 2;
 	testG.hand[currentPlayer][0] = estate;
 	nextPlayer = 1;
-	tributeF(state, currentPlayer, nextPlayer, i);
+	tributeF(&testG, currentPlayer, nextPlayer, i);
 	//verify there is the right amount of estates
 	asserttrue(testG.supplyCount[estate] == 2);
 	//verify player still has same introduced estate
