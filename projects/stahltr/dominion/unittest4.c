@@ -62,13 +62,10 @@ int main() {
 	choice1 = 1;
 	currentPlayer = 0;
 	testG.coins = 1;
-	testG.hand[currentPlayer][0] = estate;
 	tributeF(&testG, currentPlayer, nextPlayer, i);
 	printf("\n coins are:%d\n", testG.coins);
-	//verify that coins were increased by 4
-	asserttrue(testG.coins == 5);
-	//verify thatplayer no longer has estate in same place
-	asserttrue(testG.hand[currentPlayer][0] != estate);
+	//verify that coins were not increased by 4
+	asserttrue(testG.coins == 1);
 	
 	// ----------- TEST 3: --------------
 	printf("TEST 3:\n");
