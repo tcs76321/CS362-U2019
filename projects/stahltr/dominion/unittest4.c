@@ -65,7 +65,7 @@ int main() {
 	tributeF(&testG, currentPlayer, nextPlayer, i);
 	printf("\n coins are:%d\n", testG.coins);
 	//verify that coins were not increased by 4
-	asserttrue(testG.coins == 1);
+	asserttrue(testG.coins == 3);
 	
 	// ----------- TEST 3: --------------
 	printf("TEST 3:\n");
