@@ -67,7 +67,7 @@ int main() {
 	currentPlayer = 0;
 	testG.coins = 0;
 	numActs = testG.numActions + 1;
-	minionF(&testG, handPos, currentPlayer, i, j, choice1, choice2)
+	minionF(&testG, handPos, currentPlayer, i, j, choice1, choice2);
 	asserttrue(testG.coins == 0);
 	asserttrue(currentPlayer == 0);
 	asserttrue(testG.numActions == numActs);
