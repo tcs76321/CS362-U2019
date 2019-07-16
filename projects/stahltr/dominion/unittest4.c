@@ -41,6 +41,55 @@ int main() {
 
 	// copy the game state to a test case
 	memcpy(&testG, &G, sizeof(struct gameState));
+	choice1 = 0;
+	int currentPlayer = 0;
+	int rrr = testG.discardCount[0];
+	testG.supplyCount[estate] = 2;
+	int nextPlayer = 1;
+	tributeF(state, currentPlayer, nextPlayer, i);
+	//verify that an estate was not removed from supply
+	asserttrue(testG.supplyCount[estate] == 2);
+	//verify that discard count was not increased
+	asserttrue(testG.discardCount[0] == rrr);
+	
+	
+	
+	// ----------- TEST 2: --------------
+	printf("TEST 2:\n");
+
+	// copy the game state to a test case
+	memcpy(&testG, &G, sizeof(struct gameState));
+	choice1 = 1;
+	currentPlayer = 0;
+	testG.coins = 1;
+	testG.hand[currentPlayer][0] = estate;
+	tributeF(state, currentPlayer, nextPlayer, i);
+	printf("\n coins are:%d\n", testG.coins);
+	//verify that coins were increased by 4
+	asserttrue(testG.coins == 5);
+	//verify thatplayer no longer has estate in same place
+	asserttrue(testG.hand[currentPlayer][0] != estate);
+	
+	// ----------- TEST 3: --------------
+	printf("TEST 3:\n");
+
+	// copy the game state to a test case
+	memcpy(&testG, &G, sizeof(struct gameState));
+	choice1 = 0;
+	currentPlayer = 0;
+	testG.supplyCount[estate] = 2;
+	testG.hand[currentPlayer][0] = estate;
+	nextPlayer = 1;
+	tributeF(state, currentPlayer, nextPlayer, i);
+	//verify there is the right amount of estates
+	asserttrue(testG.supplyCount[estate] == 2);
+	//verify player still has same introduced estate
+	asserttrue(testG.hand[currentPlayer][0] == estate);
+	
+	printf("\n >>>>> SUCCESS: Testing complete %s <<<<<\n\n", TESTCARD);
+
+
+
 
 	
 	return 0;
