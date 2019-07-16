@@ -66,7 +66,7 @@ int main() {
 	asserttrue(testG.hand[currentPlayer][0] != estate);
 	
 	// ----------- TEST 3: --------------
-	printf("TEST 2:If estate in hand and choose not to discard it\n");
+	printf("TEST 3:If estate in hand and choose not to discard it\n");
 
 	// copy the game state to a test case
 	memcpy(&testG, &G, sizeof(struct gameState));
