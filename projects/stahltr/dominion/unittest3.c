@@ -37,12 +37,40 @@ int main() {
 	printf("----------------- Testing Card: %s ----------------\n", TESTCARD);
 
 	// ----------- TEST 1: --------------
-	printf("TEST 1:\n");
+	printf("TEST 1: \n");
 
 	// copy the game state to a test case
 	memcpy(&testG, &G, sizeof(struct gameState));
+	choice1 = 1;
+	choice2 = 0;
+	i = 0;
+	j = 0;
+	handpos = 0;
+	int currentPlayer = 0;
+	int mmm = testG.numActions;
+	ambassadorF(&testG, choice1, choice2, handPos, currentPlayer, i, j);
+	// verify that the current player didn't change
+	asserttrue(currentPlayer == 0);
+	//verify that numActions was unchanged
+	asserttrue(testG.numActions == mmm);
 	
-	
+	// ----------- TEST 2: --------------
+	printf("TEST 2: When choice is to discard and draw 4 cards\n");
+
+	// copy the game state to a test case
+	memcpy(&testG, &G, sizeof(struct gameState));
+	choice1 = 0;
+	choice2 = 1;
+	currentPlayer = 0;
+	testG.coins = 0;
+	numActs = testG.numActions;
+	ambassadorF(&testG, choice1, choice2, handPos, currentPlayer, i, j);	
+	// verify that the coins are still 0
+	asserttrue(testG.coins == 0);
+	// verify that the current player didn't change
+	asserttrue(currentPlayer == 0);
+	// verify that numActions was NOT increased
+	asserttrue(testG.numActions == numActs);
 
 	
 	return 0;

@@ -50,10 +50,14 @@ int main() {
 	int currentPlayer = 0;
 	int numActs = testG.numActions + 1;
 	minionF(&testG, handpos, currentPlayer, i, j, choice1, choice2);
+	// verify coins is now 2
 	asserttrue(testG.coins == 2);
+	// verify that the current player didn't change
 	asserttrue(currentPlayer == 0);
+	//verify i and j were not used
 	asserttrue(i == 0);
 	asserttrue(j == 0);
+	// verify that numActions was increased
 	asserttrue(testG.numActions == numActs);
 	
 	
@@ -68,8 +72,11 @@ int main() {
 	testG.coins = 0;
 	numActs = testG.numActions + 1;
 	minionF(&testG, handpos, currentPlayer, i, j, choice1, choice2);
+	// verify that the coins are still 0
 	asserttrue(testG.coins == 0);
+	// verify that the current player didn't change
 	asserttrue(currentPlayer == 0);
+	// verify that numActions was increased
 	asserttrue(testG.numActions == numActs);
 	
 	
