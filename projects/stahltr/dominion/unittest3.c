@@ -64,7 +64,7 @@ int main() {
 	currentPlayer = 0;
 	testG.coins = 0;
 	int numActs = testG.numActions;
-	ambassadorF(&testG, choice1, choice2, handPos, currentPlayer, i, j);	
+	ambassadorF(&testG, choice1, choice2, handpos, currentPlayer, i, j);	
 	// verify that the coins are still 0
 	asserttrue(testG.coins == 0);
 	// verify that the current player didn't change
