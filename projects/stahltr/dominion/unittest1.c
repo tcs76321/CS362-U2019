@@ -45,11 +45,14 @@ int main() {
 	int currentPlayer = 0;
 	int rrr = testG.discardCount[0] + 1;
 	testG.supplyCount[estate] = 2;
+	int nB = testG.numBuys + 1;
 	baronF(choice1, &testG, currentPlayer);
 	//veridy that an estate was removed from supply
 	asserttrue(testG.supplyCount[estate] == 1);
 	//verify that discard count for player is increased
 	asserttrue(testG.discardCount[0] == rrr);
+	//verify that numBuys increased
+	asserttrue(testG.numBuys == nB);
 	
 	
 	
@@ -62,12 +65,15 @@ int main() {
 	currentPlayer = 0;
 	testG.coins = 1;
 	testG.hand[currentPlayer][0] = estate;
+	nB = testG.numBuys + 1;
 	baronF(choice1, &testG, currentPlayer);
 	printf("\n coins are:%d\n", testG.coins);
 	//verify that coins were increased by 4
 	asserttrue(testG.coins == 5);
 	//verify thatplayer no longer has estate in same place
 	asserttrue(testG.hand[currentPlayer][0] != estate);
+	//verify that numBuys increased
+	asserttrue(testG.numBuys == nB);
 	
 	// ----------- TEST 3: --------------
 	printf("TEST 3:If estate in hand and choose not to discard it\n");
@@ -78,11 +84,14 @@ int main() {
 	currentPlayer = 0;
 	testG.supplyCount[estate] = 2;
 	testG.hand[currentPlayer][0] = estate;
+	nB = testG.numBuys + 1;
 	baronF(choice1, &testG, currentPlayer);
 	//verify there is the right amount of estates
 	asserttrue(testG.supplyCount[estate] == 2);
 	//verify player still has same introduced estate
 	asserttrue(testG.hand[currentPlayer][0] == estate);
+	//verify that numBuys increased
+	asserttrue(testG.numBuys == nB);
 	
 	printf("\n >>>>> SUCCESS: Testing complete %s <<<<<\n\n", TESTCARD);
 	
