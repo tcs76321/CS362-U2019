@@ -16,32 +16,35 @@ int asserttrue(int expr){
 
 
 int main() {
-    int newCards = 0;
-    int discarded = 1;
-    int xtraCoins = 0;
-    int shuffledCards = 0;
-
-    int i, j, m;
-    int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
-    int remove1, remove2;
-    int seed = 1000;
-    int numPlayers = 2;
-    int thisPlayer = 0;
+	int remove1, remove2;
+	int seed = 1000;
+	int numPlayers = 2;
 	struct gameState G, testG;
-	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse,
-			sea_hag, tribute, smithy, council_room};
-
-	// initialize a game state and player cards
+	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy, council_room};
+	
+	//init game
 	initializeGame(numPlayers, k, seed, &G);
-
-	printf("----------------- Testing Function: %s ----------------\n", TESTCARD);
-
-	// ----------- TEST 1: --------------
-	printf("TEST 1:\n");
-
-	// copy the game state to a test case
+	
+	
+	//------------- Test 1 ------------------------
+	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
-
+	printf("TEST 1: Verify there cannot be no players, or 0 players that is\n");
+	numPlayers = 5;
+	int okToRun = 
+	
+	
+	//------------- Test 2 ------------------------
+	// copy the control game state to the test state
+	memcpy(&testG, &G, sizeof(struct gameState));
+	printf("TEST 2:\n");
+	
+	
+	//------------- Test 3 ------------------------
+	// copy the control game state to the test state
+	memcpy(&testG, &G, sizeof(struct gameState));
+	printf("TEST 3:\n");
+	
 	
 	return 0;
 }
