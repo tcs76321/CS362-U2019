@@ -65,23 +65,9 @@ int main() {
 	mineF(&testG, i, j, choice1, choice2, currentPlayer, handpos);
 	printf("\n coins are:%d\n", testG.coins);
 	//verify that coins were not increased by 4
-	asserttrue(testG.coins == 3);
+	asserttrue(testG.coins == 1);
 	
-	// ----------- TEST 3: --------------
-	printf("TEST 3:\n");
 
-	// copy the game state to a test case
-	memcpy(&testG, &G, sizeof(struct gameState));
-	choice1 = 0;
-	currentPlayer = 0;
-	testG.supplyCount[estate] = 2;
-	testG.hand[currentPlayer][0] = estate;
-	nextPlayer = 1;
-	mineF(&testG, i, j, choice1, choice2, currentPlayer, handpos);
-	//verify there is the right amount of estates
-	asserttrue(testG.supplyCount[estate] == 2);
-	//verify player still has same introduced estate
-	asserttrue(testG.hand[currentPlayer][0] == estate);
 	
 	printf("\n >>>>> SUCCESS: Testing complete %s <<<<<\n\n", TESTCARD);
 
