@@ -28,11 +28,11 @@ int main() {
 	//------------- Test 1 ------------------------
 	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
-	printf("TEST 1: Verify the first two cards are different than before\n");
+	printf("TEST 1: Verify the first five cards in hand are not at all the same\n");
 	int currentPlayer = 0;
 	shuffle(currentPlayer, &testG);
 	int counterII = 0;
-	int numTestss = 2;
+	int numTestss = 5;
 	int ii;
 	for(ii = 0; ii < numTestss ;ii++){
 		if(testG.hand[currentPlayer][ii] == G.hand[currentPlayer][ii]){
