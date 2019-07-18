@@ -46,7 +46,7 @@ int main() {
 	//------------- Test 3 ------------------------
 	memcpy(&testG, &G, sizeof(struct gameState));
 	printf("TEST 2: Verify that if 11 kingdom cards, something other than 10 that is, not okay to run\n");
-	int kDup2[11] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, smithy, council_room, market};
+	int kDup2[11] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, smithy, council_room, ambassador};
 	okToRun = initializeGame(numPlayers, kDup2, seed, &testG);
 	asserttrue(okToRun == -1);
 	
