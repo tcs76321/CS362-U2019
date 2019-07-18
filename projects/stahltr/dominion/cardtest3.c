@@ -29,9 +29,9 @@ int main() {
 	// copy the control game state to the test state
 	initializeGame(numPlayers, k, seed, &testG4);
 	printf("TEST 3:verify the player changes in 4 player game\n");
-	ccPP = whoseTurn(&G);
+	int ccPP = whoseTurn(&G);
 	endTurn(&testG);
-	ccPPafter = whoseTurn(&testG);
+	int ccPPafter = whoseTurn(&testG);
 	asserttrue(ccPPafter != ccPP);
 	
 	
