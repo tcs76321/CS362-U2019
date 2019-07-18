@@ -16,7 +16,7 @@ int asserttrue(int expr){
 
 //Citation: I tried to stay unique but this is very much inspired by the hint my teacher Wendy Roberts gave me
 int main() {
-	int remove1, remove2;
+	//int remove1, remove2;
 	int seed = 1000;
 	int numPlayers = 2;
 	struct gameState G, testG;
@@ -45,11 +45,13 @@ int main() {
 	
 	//------------- Test 3 ------------------------
 	memcpy(&testG, &G, sizeof(struct gameState));
-	printf("TEST 2: Verify that if 11 kingdom cards, something other than 10 that is, not okay to run\n");
+	printf("TEST 3: Verify that if 11 kingdom cards, something other than 10 that is, not okay to run\n");
 	int kDup2[11] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, smithy, council_room, ambassador};
 	okToRun = initializeGame(numPlayers, kDup2, seed, &testG);
 	asserttrue(okToRun == -1);
 	
+	
+	printf("\n >>>>> SUCCESS: Testing complete %s <<<<<\n\n", TESTCARD);
 	
 	return 0;
 }
