@@ -25,7 +25,7 @@ int main() {
 	
 	//------------- Test 1 ------------------------
 	initializeGame(numPlayers, k, seed, &testG2);
-	printf("TEST 3:verify the player changes in 4 player game\n");
+	printf("TEST 1:verify the player changes in 2 player game\n");
 	int ccPP = whoseTurn(&testG2);
 	endTurn(&testG2);
 	int ccPPafter = whoseTurn(&testG2);

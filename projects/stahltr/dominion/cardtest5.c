@@ -30,21 +30,7 @@ int main() {
 	//------------- Test 1 ------------------------
 	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
-	printf("TEST 1: Verify there cannot be no players, or 0 players that is\n");
-	numPlayers = 5;
-	int okToRun = 
-	
-	
-	//------------- Test 2 ------------------------
-	// copy the control game state to the test state
-	memcpy(&testG, &G, sizeof(struct gameState));
-	printf("TEST 2:\n");
-	
-	
-	//------------- Test 3 ------------------------
-	// copy the control game state to the test state
-	memcpy(&testG, &G, sizeof(struct gameState));
-	printf("TEST 3:\n");
+
 	
 	
 	return 0;
