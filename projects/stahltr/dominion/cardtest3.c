@@ -18,40 +18,33 @@ int asserttrue(int expr){
 int main() {
 	int seed = 1000;
 	int numPlayers = 2;
-	struct gameState G, testG, testG3, testG4;
+	struct gameState testG2, testG3, testG4;
 	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy, council_room};
-	
-	//init game
-	initializeGame(numPlayers, k, seed, &G);
+
 	
 	
 	//------------- Test 1 ------------------------
-	// copy the control game state to the test state
-	initializeGame(numPlayers, k, seed, &testG4);
+	initializeGame(numPlayers, k, seed, &testG2);
 	printf("TEST 3:verify the player changes in 4 player game\n");
-	int ccPP = whoseTurn(&G);
-	endTurn(&testG);
-	int ccPPafter = whoseTurn(&testG);
+	int ccPP = whoseTurn(&testG2);
+	endTurn(&testG2);
+	int ccPPafter = whoseTurn(&testG2);
 	asserttrue(ccPPafter != ccPP);
-	
 	
 	//------------- Test 2 ------------------------
-
 	initializeGame(numPlayers, (k+1), seed, &testG3);
 	printf("TEST 2:verify the player changes in 3 player game\n");
-	ccPP = whoseTurn(&G);
-	endTurn(&testG);
-	ccPPafter = whoseTurn(&testG);
+	ccPP = whoseTurn(&testG3);
+	endTurn(&testG3);
+	ccPPafter = whoseTurn(&testG3);
 	asserttrue(ccPPafter != ccPP);
 	
-	
 	//------------- Test 3 ------------------------
-
 	initializeGame(numPlayers, (k+2), seed, &testG4);
 	printf("TEST 3:verify the player changes in 4 player game\n");
-	ccPP = whoseTurn(&G);
-	endTurn(&testG);
-	ccPPafter = whoseTurn(&testG);
+	ccPP = whoseTurn(&testG4);
+	endTurn(&testG4);
+	ccPPafter = whoseTurn(&testG4);
 	asserttrue(ccPPafter != ccPP);
 	
 	
