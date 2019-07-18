@@ -14,7 +14,7 @@ int asserttrue(int expr){
 	return 0;
 }
 
-
+//Citation: I tried to stay unique but this is very much inspired by the hint my teacher Wendy Roberts gave me
 int main() {
 	int remove1, remove2;
 	int seed = 1000;
@@ -30,20 +30,25 @@ int main() {
 	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
 	printf("TEST 1: Verify there cannot be no players, or 0 players that is\n");
-	numPlayers = 5;
-	int okToRun = 
+	numPlayers = 0;
+	int okToRun = initializeGame(numPlayers, k, seed, &testG);
+	asserttrue(okToRun == -1);
 	
 	
 	//------------- Test 2 ------------------------
 	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
-	printf("TEST 2:\n");
-	
+	printf("TEST 2: Verify that if 9 kingdom cards, something other than 10 that is, not okay to run\n");
+	int kDup[9] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, smithy, council_room};
+	okToRun = initializeGame(numPlayers, kDup, seed, &testG);
+	asserttrue(okToRun == -1);
 	
 	//------------- Test 3 ------------------------
-	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
-	printf("TEST 3:\n");
+	printf("TEST 2: Verify that if 11 kingdom cards, something other than 10 that is, not okay to run\n");
+	int kDup2[11] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, smithy, council_room, market};
+	okToRun = initializeGame(numPlayers, kDup2, seed, &testG);
+	asserttrue(okToRun == -1);
 	
 	
 	return 0;
