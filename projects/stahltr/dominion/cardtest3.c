@@ -16,7 +16,6 @@ int asserttrue(int expr){
 
 
 int main() {
-	int remove1, remove2;
 	int seed = 1000;
 	int numPlayers = 2;
 	struct gameState G, testG, testG3, testG4;
@@ -30,9 +29,9 @@ int main() {
 	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
 	printf("TEST 1:verify the player changes in 2 player game\n");
-	int ccPP = whoseTurn(G);
+	int ccPP = whoseTurn(&G);
 	endTurn(&testG);
-	int ccPPafter = whoseTurn(testG);
+	int ccPPafter = whoseTurn(&testG);
 	asserttrue(ccPPafter != ccPP);
 	
 	
@@ -40,9 +39,9 @@ int main() {
 
 	initializeGame(numPlayers, (k+1), seed, &testG3);
 	printf("TEST 2:verify the player changes in 3 player game\n");
-	ccPP = whoseTurn(G);
+	ccPP = whoseTurn(&G);
 	endTurn(&testG);
-	ccPPafter = whoseTurn(testG);
+	ccPPafter = whoseTurn(&testG);
 	asserttrue(ccPPafter != ccPP);
 	
 	
@@ -50,9 +49,9 @@ int main() {
 
 	initializeGame(numPlayers, (k+2), seed, &testG4);
 	printf("TEST 3:verify the player changes in 4 player game\n");
-	ccPP = whoseTurn(G);
+	ccPP = whoseTurn(&G);
 	endTurn(&testG);
-	ccPPafter = whoseTurn(testG);
+	ccPPafter = whoseTurn(&testG);
 	asserttrue(ccPPafter != ccPP);
 	
 	
