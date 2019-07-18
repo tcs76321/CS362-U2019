@@ -9,10 +9,11 @@
 #define TESTCARD "drawCard"
 
 int asserttrue(int expr){
-	if(expr == 1){printf("\n passed \n");}
-	else{printf("\n failed \n");}
+	if(expr == 1){printf("\n passed \n\n\n\n");}
+	else{printf("\n failed \n\n\n\n");}
 	return 0;
 }
+
 
 
 int main() {
