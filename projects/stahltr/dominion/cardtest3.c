@@ -19,7 +19,7 @@ int main() {
 	int remove1, remove2;
 	int seed = 1000;
 	int numPlayers = 2;
-	struct gameState G, testG;
+	struct gameState G, testG, testG3, testG4;
 	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy, council_room};
 	
 	//init game
@@ -29,22 +29,45 @@ int main() {
 	//------------- Test 1 ------------------------
 	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
-	printf("TEST 1: Verify there cannot be no players, or 0 players that is\n");
-	numPlayers = 5;
-	int okToRun = 
+	printf("TEST 1:verify the player changes in 2 player game\n");
+	int ccPP = whoseTurn(G);
+	endTurn(&testG);
+	int ccPPafter = whoseTurn(testG);
+	asserttrue(ccPPafter != ccPP);
 	
 	
 	//------------- Test 2 ------------------------
-	// copy the control game state to the test state
-	memcpy(&testG, &G, sizeof(struct gameState));
-	printf("TEST 2:\n");
+
+	initializeGame(numPlayers, (k+1), seed, &testG3);
+	printf("TEST 2:verify the player changes in 3 player game\n");
+	ccPP = whoseTurn(G);
+	endTurn(&testG);
+	ccPPafter = whoseTurn(testG);
+	asserttrue(ccPPafter != ccPP);
 	
 	
 	//------------- Test 3 ------------------------
-	// copy the control game state to the test state
-	memcpy(&testG, &G, sizeof(struct gameState));
-	printf("TEST 3:\n");
+
+	initializeGame(numPlayers, (k+2), seed, &testG4);
+	printf("TEST 3:verify the player changes in 4 player game\n");
+	ccPP = whoseTurn(G);
+	endTurn(&testG);
+	ccPPafter = whoseTurn(testG);
+	asserttrue(ccPPafter != ccPP);
+	
+	
 	
 	
 	return 0;
 }
+
+/*
+
+unittestresults: unitTest1 unitTest3 unitTest4 unitTest5 dominion.o
+    echo "unittest1 BEGIN:" >> unittestresults.out
+	unitTest1 >> unittestresults.out
+	gcov dominion.c -b -f >> unittestresults.out
+	cat dominion.c.gcov >> unittestresults.out
+
+
+*/
