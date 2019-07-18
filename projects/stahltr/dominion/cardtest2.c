@@ -32,8 +32,9 @@ int main() {
 	int currentPlayer = 0;
 	shuffle(currentPlayer, &testG);
 	int counterII = 0;
-	int numTestss = 2
-	for(int ii = 0; ii < numTestss ;ii++){
+	int numTestss = 2;
+	int ii;
+	for(ii = 0; ii < numTestss ;ii++){
 		if(testG.hand[currentPlayer][ii] == G.hand[currentPlayer][ii]){
 			printf("Same - uh oh\n");
 			counterII++;
