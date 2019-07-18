@@ -27,11 +27,11 @@ int main() {
 	
 	//------------- Test 1 ------------------------
 	// copy the control game state to the test state
-	memcpy(&testG, &G, sizeof(struct gameState));
-	printf("TEST 1:verify the player changes in 2 player game\n");
-	int ccPP = whoseTurn(&G);
+	initializeGame(numPlayers, k, seed, &testG4);
+	printf("TEST 3:verify the player changes in 4 player game\n");
+	ccPP = whoseTurn(&G);
 	endTurn(&testG);
-	int ccPPafter = whoseTurn(&testG);
+	ccPPafter = whoseTurn(&testG);
 	asserttrue(ccPPafter != ccPP);
 	
 	
