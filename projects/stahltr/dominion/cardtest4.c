@@ -24,13 +24,44 @@ int main() {
 	
 	//init game
 	initializeGame(numPlayers, k, seed, &G);
+
 	
 	
 	//------------- Test 1 ------------------------
 	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
 	
+	//manipulate control for expectance of 
+	testG.hand[0][0] = curse;
+	testG.hand[0][1] = curse;
+	testG.hand[0][2] = curse;
 	
+	testG.discard[0][0] = curse;
+	testG.discard[0][1] = curse;
+	testG.discard[0][2] = curse;
+	
+	testG.deck[0][0] = curse;
+	testG.deck[0][1] = curse;
+	testG.deck[0][2] = curse;
+	
+	testG.hand[1][0] = province;
+	testG.hand[1][1] = province;
+	testG.hand[1][2] = province;
+	
+	testG.discard[1][0] = province;
+	testG.discard[1][1] = province;
+	testG.discard[1][2] = province;
+	
+	testG.deck[1][0] = province;
+	testG.deck[1][1] = province;
+	testG.deck[1][2] = province;
+	
+	int aP[] = {0, 0};
+	getWinners(ap, &testG);
+	int player_1 = ap[0];
+	int player_2 = ap[1];
+	asserttrue(player_2 == 1);
+	asserttrue(player_1 == 0);
 	
 	//------------- Test 2 ------------------------	
 	initializeGame(numPlayers+1, k+, seed, &testG2);
