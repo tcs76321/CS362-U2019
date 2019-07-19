@@ -56,7 +56,7 @@ int main() {
 	testG.deck[1][1] = province;
 	testG.deck[1][2] = province;
 	
-	int aP[] = {0, 0};
+	int ap[] = {0, 0};
 	getWinners(ap, &testG);
 	int player_1 = ap[0];
 	int player_2 = ap[1];
@@ -64,7 +64,7 @@ int main() {
 	asserttrue(player_1 == 0);
 	
 	//------------- Test 2 ------------------------	
-	initializeGame(numPlayers+1, k+, seed, &testG2);
+	initializeGame(numPlayers+1, k, seed, &testG2);
 
 	
 	return 0;
