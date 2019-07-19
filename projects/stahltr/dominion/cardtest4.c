@@ -65,6 +65,51 @@ int main() {
 	
 	//------------- Test 2 ------------------------	
 	initializeGame(numPlayers+1, k, seed, &testG2);
+	
+	testG2.hand[0][0] = curse;
+	testG2.hand[0][1] = curse;
+	testG2.hand[0][2] = curse;
+	
+	testG2.discard[0][0] = curse;
+	testG2.discard[0][1] = curse;
+	testG2.discard[0][2] = curse;
+	
+	testG2.deck[0][0] = curse;
+	testG2.deck[0][1] = curse;
+	testG2.deck[0][2] = curse;
+	
+	testG2.hand[1][0] = province;
+	testG2.hand[1][1] = province;
+	testG2.hand[1][2] = province;
+	
+	testG2.discard[1][0] = province;
+	testG2.discard[1][1] = province;
+	testG2.discard[1][2] = province;
+	
+	testG2.deck[1][0] = province;
+	testG2.deck[1][1] = province;
+	testG2.deck[1][2] = province;
+	
+	testG2.hand[2][0] = province;
+	testG2.hand[2][1] = province;
+	testG2.hand[2][2] = province;
+	
+	testG2.discard[2][0] = province;
+	testG2.discard[2][1] = province;
+	testG2.discard[2][2] = province;
+	
+	testG2.deck[2][0] = province;
+	testG2.deck[2][1] = province;
+	testG2.deck[2][2] = province;
+	
+	int ap2[] = {0, 0, 0};
+	getWinners(ap2, &testG2);
+	int player_12 = ap2[0];
+	int player_22 = ap2[1];
+	int player_32 = ap2[2];
+	asserttrue(player_22 == 1);
+	asserttrue(player_12 == 0);
+	asserttrue(player_32 == 1);
 
 	
 	return 0;
