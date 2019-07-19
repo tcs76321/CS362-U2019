@@ -32,7 +32,7 @@ int main() {
 	asserttrue(ccPPafter != ccPP);
 	
 	//------------- Test 2 ------------------------
-	initializeGame(numPlayers, (k+1), seed, &testG3);
+	initializeGame(numPlayers+1, k, seed, &testG3);
 	printf("TEST 2:verify the player changes in 3 player game\n");
 	ccPP = whoseTurn(&testG3);
 	endTurn(&testG3);
@@ -40,7 +40,7 @@ int main() {
 	asserttrue(ccPPafter != ccPP);
 	
 	//------------- Test 3 ------------------------
-	initializeGame(numPlayers, (k+2), seed, &testG4);
+	initializeGame(numPlayers+2, k, seed, &testG4);
 	printf("TEST 3:verify the player changes in 4 player game\n");
 	ccPP = whoseTurn(&testG4);
 	endTurn(&testG4);

@@ -19,7 +19,7 @@ int main() {
 	int remove1, remove2;
 	int seed = 1000;
 	int numPlayers = 2;
-	struct gameState G, testG;
+	struct gameState G, testG, testG2;
 	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse, sea_hag, tribute, smithy, council_room};
 	
 	//init game
@@ -29,6 +29,11 @@ int main() {
 	//------------- Test 1 ------------------------
 	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
+	
+	
+	
+	//------------- Test 2 ------------------------	
+	initializeGame(numPlayers+1, k+, seed, &testG2);
 
 	
 	return 0;
