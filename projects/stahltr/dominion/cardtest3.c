@@ -9,8 +9,8 @@
 #define TESTCARD "endTurn"
 
 int asserttrue(int expr){
-	if(expr == 1){printf("\n passed \n\n\n\n");}
-	else{printf("\n failed \n\n\n\n");}
+	if(expr == 1){printf("\n passed \n\n");}
+	else{printf("\n failed \n\n");}
 	return 0;
 }
 
