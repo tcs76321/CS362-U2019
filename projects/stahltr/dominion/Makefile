@@ -61,6 +61,7 @@ unittestresults: dominion.o unittest1.c unittest2.c unittest3.c unittest4.c unit
 	gcov cardtest3 -b >> unittestresults.out
 	gcov cardtest4 -b >> unittestresults.out
 	gcov cardtest5 -b >> unittestresults.out
+	gcov dominion.c -f -b >> unittestresults.out
 	
 
 
