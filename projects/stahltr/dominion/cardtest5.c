@@ -40,8 +40,6 @@ int main() {
 	int p2h2 = testG.handCount[1];
 	int p1d2 =  testG.deckCount[0];
 	int p2d2 =  testG.deckCount[1];
-	
-	
 	asserttrue( p1d2 < p1d );
 	asserttrue( p2d2 < p2d );
 	asserttrue( p1h2 > p1h );
