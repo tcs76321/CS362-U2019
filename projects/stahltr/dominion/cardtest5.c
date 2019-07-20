@@ -30,12 +30,20 @@ int main() {
 	//------------- Test 1 ------------------------
 	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
-	int p1h =  testG.deckCount[0];
-	int p2h =  testG.deckCount[1];
+	int p1d =  testG.deckCount[0];
+	int p2d =  testG.deckCount[1];
+	int p1h = testG.handCount[0];
+	int p2h = testG.handCount[1];
 	drawCard(0, &testG);
 	drawCard(1, &testG);
-	int p1h2 =  testG.deckCount[0];
-	int p2h2 =  testG.deckCount[1];
+	int p1h2 = testG.handCount[0];
+	int p2h2 = testG.handCount[1];
+	int p1d2 =  testG.deckCount[0];
+	int p2d2 =  testG.deckCount[1];
+	
+	
+	asserttrue( p1d2 < p1d );
+	asserttrue( p2d2 < p2d );
 	asserttrue( p1h2 > p1h );
 	asserttrue( p2h2 > p2h );
 	
