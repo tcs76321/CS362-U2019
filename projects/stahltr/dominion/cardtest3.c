@@ -26,6 +26,8 @@ int main() {
 	//------------- Test 1 ------------------------
 	initializeGame(numPlayers, k, seed, &testG2);
 	
+	printf("----------------- Testing Card: %s ----------------\n", TESTCARD);
+	
 	printf("TEST 1:verify the player changes 20 times in 2 player game\n");
 	
 	int ccPP = whoseTurn(&testG2);
@@ -66,6 +68,7 @@ int main() {
 		asserttrue(ccPPafter != ccPP);
 	}
 	
+	printf("\n >>>>> SUCCESS: Testing complete %s <<<<<\n\n", TESTCARD);
 	
 	
 	return 0;

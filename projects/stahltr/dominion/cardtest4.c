@@ -25,8 +25,9 @@ int main() {
 	//init game
 	initializeGame(numPlayers, k, seed, &G);
 
+	printf("----------------- Testing Card: %s ----------------\n", TESTCARD);
 	
-	
+	printf("TEST 1:verify one player can win in two player game\n");
 	//------------- Test 1 ------------------------
 	// copy the control game state to the test state
 	memcpy(&testG, &G, sizeof(struct gameState));
@@ -42,7 +43,7 @@ int main() {
 	
 	testG.deck[0][0] = curse;
 	testG.deck[0][1] = curse;
-	testG.deck[0][2] = curse;
+	testG.discard[0][1] = curse;
 	
 	testG.hand[1][0] = province;
 	testG.hand[1][1] = province;
@@ -63,6 +64,7 @@ int main() {
 	asserttrue(player_2 == 1);
 	asserttrue(player_1 == 0);
 	
+	printf("TEST 2:verify two players can win in three player game\n");
 	//------------- Test 2 ------------------------	
 	initializeGame(numPlayers+1, k, seed, &testG2);
 	
@@ -112,5 +114,6 @@ int main() {
 	asserttrue(player_32 == 1);
 
 	
+	printf("\n >>>>> SUCCESS: Testing complete %s <<<<<\n\n", TESTCARD);
 	return 0;
 }

@@ -24,6 +24,7 @@ int main() {
 	//init game
 	initializeGame(numPlayers, k, seed, &G);
 	
+	printf("----------------- Testing Card: %s ----------------\n", TESTCARD);
 	
 	//------------- Test 1 ------------------------
 	// copy the control game state to the test state
