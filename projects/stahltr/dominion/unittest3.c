@@ -71,6 +71,8 @@ int main() {
 	asserttrue(currentPlayer == 0);
 	// verify that numActions was NOT increased
 	asserttrue(testG.numActions == numActs);
+	
+	printf("\n >>>>> SUCCESS: Testing complete %s <<<<<\n\n", TESTCARD);
 
 	
 	return 0;

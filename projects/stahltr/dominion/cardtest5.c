@@ -26,6 +26,8 @@ int main() {
 	//init game
 	initializeGame(numPlayers, k, seed, &G);
 	
+	printf("----------------- Testing Card: %s ----------------\n", TESTCARD);
+	
 	printf("TEST 1:verify that in two player game both players can draw\n");
 	//------------- Test 1 ------------------------
 	// copy the control game state to the test state
