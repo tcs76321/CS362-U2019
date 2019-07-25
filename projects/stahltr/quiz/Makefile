@@ -1,6 +1,6 @@
 testme:
 	-gcc -o quiz testme.c -coverage -fpic -lm
-	./quiz
+	-./quiz
 	-gcov testme.c -b
 
 clean:
