@@ -4,13 +4,15 @@
 #include<time.h>
 
 char inputChar(){    
-// TODO: rewrite this function    
-	return ' ';
+// TODO: rewrite this function
+	char resultC = ( rand() % 127);
+	return resultC;
 }
 
-char *inputString(){
+char * inputString(){
 // TODO: rewrite this function
-	return "";
+	
+	return ;
 }
 
 void testme(){  
@@ -41,6 +43,6 @@ void testme(){
 
 int main(int argc, char *argv[]){    
 	srand(time(NULL));    
-	testme();    
+	testme();
 	return 0;
 }
