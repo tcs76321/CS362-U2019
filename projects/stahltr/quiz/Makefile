@@ -1,6 +1,6 @@
 testme:
 	-gcc -o quiz testme.c -coverage -fpic -lm
-	-./quiz >> quizResults.out
+	-./quiz >> quizPrints.out
 	-gcov testme.c -b >> quizResults.out
 
 clean:
