@@ -11,11 +11,11 @@ char inputChar(){
 
 void inputString(char * s){
 // TODO: rewrite this function
-	s[0] = ( rand() % 127);
-	s[1] = ( rand() % 127);
-	s[2] = ( rand() % 127);
-	s[3] = ( rand() % 127);
-	s[4] = ( rand() % 127);
+	s[0] = ( rand() % 29) + 97;
+	s[1] = ( rand() % 29) + 97;
+	s[2] = ( rand() % 29) + 97;
+	s[3] = ( rand() % 29) + 97;
+	s[4] = ( rand() % 29) + 97;
 }
 
 void testme(){  
