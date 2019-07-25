@@ -9,7 +9,7 @@ char inputChar(){
 	return resultC;
 }
 
-void inputString(s){
+void inputString(char * s){
 // TODO: rewrite this function
 	s[0] = ( rand() % 127);
 	s[1] = ( rand() % 127);
@@ -20,13 +20,13 @@ void inputString(s){
 
 void testme(){  
 	int tcCount = 0;  
-	char *s;  
+	char * s = (char*) malloc((6)*sizeof(char));  
 	char c;  
 	int state = 0;  
 	while (1){    
 		tcCount++;    
 		c = inputChar();
-		s = (char*) malloc((6)*sizeof(char));
+		//s = (char*) malloc((6)*sizeof(char));
 		s[5] = '\0';
 		/*s = */inputString(s);    
 		printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);    
@@ -42,7 +42,8 @@ void testme(){
 		if (s[0] == 'r' && s[1] == 'e' && s[2] == 's' && s[3] == 'e' && s[4] == 't' && s[5] == '\0' && state == 9){      
 			printf("error ");      
 			exit(200);    
-		}  
+		}
+		free(s);
 	}
 }
 
