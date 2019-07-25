@@ -9,10 +9,13 @@ char inputChar(){
 	return resultC;
 }
 
-char * inputString(){
+void inputString(s){
 // TODO: rewrite this function
-	
-	return ;
+	s[0] = ( rand() % 127);
+	s[1] = ( rand() % 127);
+	s[2] = ( rand() % 127);
+	s[3] = ( rand() % 127);
+	s[4] = ( rand() % 127);
 }
 
 void testme(){  
@@ -22,8 +25,10 @@ void testme(){
 	int state = 0;  
 	while (1){    
 		tcCount++;    
-		c = inputChar();    
-		s = inputString();    
+		c = inputChar();
+		s = (char*) malloc((6)*sizeof(char));
+		s[5] = '\0';
+		/*s = */inputString(s);    
 		printf("Iteration %d: c = %c, s = %s, state = %d\n", tcCount, c, s, state);    
 		if (c == '[' && state == 0) state = 1;    
 		if (c == '(' && state == 1) state = 2;    
