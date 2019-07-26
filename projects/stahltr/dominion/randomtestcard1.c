@@ -42,7 +42,7 @@ int main() {
 		numPlayers = floor(Random() * 3);
 		numPlayers = numPlayers + 2;
 		initializeGame(numPlayers, k, seed, &G);
-		p = floor(Random() * numPlayers);//play
+		p = floor(Random() * numPlayers);//player
 		pp = floor(Random() * 2);//choice
 		G.deckCount[p] = floor(Random() * MAX_DECK);
 		G.discardCount[p] = floor(Random() * MAX_DECK);
@@ -52,11 +52,15 @@ int main() {
 		nB = G.numBuys + 1;
 		G.coins = floor(Random() * 5);
 		CC = G.coins;
+		if(floor(Random() * 9) > 4){
+			testG.hand[p][0] = estate;
+		}
 		baronF(pp, &G, p);
 		//verify that numBuys increased
 		asserttrue(G.numBuys == nB);
 		if(pp == 0){
 			//if not going to discard in first place
+			printf("\npp == 0");
 			asserttrue(rrr-1 == G.discardCount[p]);
 			
 		}
