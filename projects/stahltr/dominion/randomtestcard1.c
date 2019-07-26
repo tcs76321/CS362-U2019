@@ -52,8 +52,9 @@ int main() {
 		nB = G.numBuys + 1;
 		G.coins = floor(Random() * 5);
 		CC = G.coins;
-		if(floor(Random() * 9) > 4){
+		if(floor(Random() * 9) > 2){
 			G.hand[p][0] = estate;
+			printf("\nCHANGING HAND");
 		}
 		baronF(pp, &G, p);
 		//verify that numBuys increased
