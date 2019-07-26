@@ -19,31 +19,51 @@ int asserttrue(int expr){
 int main() {
 	printf("\n\n\n\n\n\n----------------- Random Testing Card: %s ----------------\n\n", TESTCARD);
 	int n, i, p, pp, rrr, nB, CC;
-	struct gameState G, testG;
+	int newCards = 0;
+    int discarded = 1;
+    int xtraCoins = 0;
+    int shuffledCards = 0;
+    int i, j, m;
+    int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+    int remove1, remove2;
+    int seed = 1000;
+    int numPlayers = 2;
+    int thisPlayer = 0;
+	struct gameState G;
+	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse,
+			sea_hag, tribute, smithy, council_room};
+
+	// initialize a game state and player cards
+	initializeGame(numPlayers, k, seed, &G);
+	
 	for(n = 0; n < 10000 ;n++){
-		for(i = 0; i < sizeof(struct gameState) ;i++){
-			((char*)&G)[i] = floor(Random() * 256);
-		}
-		p = floor(Random() * 2);
-		pp = floor(Random() * 2);
+		seed = floor(Random() * 2000);
+		seed = seed + 42;
+		numPlayers = floor(Random() * 3);
+		numPlayers = numPlayers + 2;
+		initializeGame(numPlayers, k, seed, &G);
+		p = floor(Random() * numPlayers);//play
+		pp = floor(Random() * 2);//choice
 		G.deckCount[p] = floor(Random() * MAX_DECK);
 		G.discardCount[p] = floor(Random() * MAX_DECK);
 		G.handCount[p] = floor(Random() * MAX_HAND);
-		rrr = G.discardCount[0] + 1;
+		rrr = G.discardCount[p] + 1;//variable for discard
 		G.supplyCount[estate] = 2;
 		nB = G.numBuys + 1;
 		G.coins = floor(Random() * 5);
 		CC = G.coins;
-		baronF(pp, &testG, p);
+		baronF(pp, &G, p);
 		//verify that numBuys increased
 		asserttrue(G.numBuys == nB);
 		if(pp == 0){
 			//if not going to discard in first place
+			asserttrue(rrr-1 == G.discardCount[p]);
 			
 		}
 		else{
 			//if discarding
-			
+			asserttrue(rrr == G.discardCount[p]);
+			asserttrue(CC+4 == G.coins);
 		}
 	}
 	

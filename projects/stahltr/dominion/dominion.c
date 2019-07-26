@@ -6,8 +6,8 @@
 #include <stdlib.h>
 
 int baronF(int choice1, struct gameState *state, int currentPlayer){
-	      state->numBuys = 2;//Increase buys by 1!
-      if (choice1 > 0){//Boolean true or going to discard an estate
+	state->numBuys = 2;//Increase buys by 1!
+    if (choice1 > 0){//Boolean true or going to discard an estate
 	int p = 0;//Iterator for hand!
 	int card_not_discarded = 0;//Flag for discard set!
 	while(card_not_discarded){
