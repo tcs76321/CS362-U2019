@@ -53,7 +53,7 @@ int main() {
 		G.coins = floor(Random() * 5);
 		CC = G.coins;
 		if(floor(Random() * 9) > 4){
-			testG.hand[p][0] = estate;
+			G.hand[p][0] = estate;
 		}
 		baronF(pp, &G, p);
 		//verify that numBuys increased
