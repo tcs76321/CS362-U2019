@@ -15,48 +15,37 @@ int asserttrue(int expr){
 }
 
 
+
 int main() {
 	printf("\n\n\n\n\n\n----------------- Random Testing Card: %s ----------------\n\n", TESTCARD);
-	
-	int newCards = 0;
-    int discarded = 0;
-    int xtraCoins = 0;
-    int shuffledCards = 0;
-
-    int i, j, m;
-    int handPos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
-    int remove1, remove2;
-    int seed = 76321;
-    int numPlayers = 2;
-    int thisPlayer = 0;
+	int n, i, p, pp, rrr, nB, CC;
 	struct gameState G, testG;
-	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse,
-			sea_hag, tribute, smithy, council_room};
-
-	// initialize a game state and player cards
-	initializeGame(numPlayers, k, seed, &G);
-
-	// ----------- TEST 1: --------------
-	printf("TEST 1:\n");
-
-	// copy the game state to a test case
-	memcpy(&testG, &G, sizeof(struct gameState));
-	
-	
-	
-	choice1 = 0;
-	int currentPlayer = 0;
-	int rrr = testG.discardCount[0] + 1;
-	testG.supplyCount[estate] = 2;
-	int nB = testG.numBuys + 1;
-	baronF(choice1, &testG, currentPlayer);
-	//veridy that an estate was removed from supply
-	asserttrue(testG.supplyCount[estate] == 1);
-	//verify that discard count for player is increased
-	asserttrue(testG.discardCount[0] == rrr);
-	//verify that numBuys increased
-	asserttrue(testG.numBuys == nB);
-	
+	for(n = 0; n < 10000 ;n++){
+		for(i = 0; i < sizeof(struct gameState) ;i++){
+			((char*)&G)[i] = floor(Random() * 256);
+		}
+		p = floor(Random() * 2);
+		pp = floor(Random() * 2);
+		G.deckCount[p] = floor(Random() * MAX_DECK);
+		G.discardCount[p] = floor(Random() * MAX_DECK);
+		G.handCount[p] = floor(Random() * MAX_HAND);
+		rrr = G.discardCount[0] + 1;
+		G.supplyCount[estate] = 2;
+		nB = G.numBuys + 1;
+		G.coins = floor(Random() * 5);
+		CC = G.coins;
+		baronF(pp, &testG, p);
+		//verify that numBuys increased
+		asserttrue(G.numBuys == nB);
+		if(pp == 0){
+			//if not going to discard in first place
+			
+		}
+		else{
+			//if discarding
+			
+		}
+	}
 	
 	printf("\n\n----- >>>>> SUCCESS: Testing complete %s <<<<< -----\n\n\n\n\n", TESTCARD);
 }
