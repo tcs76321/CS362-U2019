@@ -24,8 +24,8 @@ int main() {
 		for(i = 0; i < sizeof(struct gameState) ;i++){
 			((char*)&G)[i] = floor(Random() * 256);
 		}
-		p = floor(Random() * 1);
-		pp = floor(Random() * 1);
+		p = floor(Random() * 2);
+		pp = floor(Random() * 2);
 		G.deckCount[p] = floor(Random() * MAX_DECK);
 		G.discardCount[p] = floor(Random() * MAX_DECK);
 		G.handCount[p] = floor(Random() * MAX_HAND);
