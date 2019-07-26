@@ -46,6 +46,3 @@ randomtestresults: dominion.o randomtestcard1.c randomtestcard2.c randomtestcard
 	./randomtestcard2 >> randomtestresults.out
 	./randomtestcard3 >> randomtestresults.out
 	gcov dominion.c -f -b >> randomtestresults.out
-	gcov randomtestcard1 -b >> randomtestcard.out
-	gcov randomtestcard2 -b >> randomtestcard.out
-	gcov randomtestcard3 -b >> randomtestcard.out

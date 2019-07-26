@@ -36,7 +36,7 @@ int main() {
 	// initialize a game state and player cards
 	initializeGame(numPlayers, k, seed, &G);
 	
-	for(n = 0; n < 10000 ;n++){
+	for(n = 0; n < 1000000 ;n++){
 		seed = floor(Random() * 2000);
 		seed = seed + 42;
 		numPlayers = floor(Random() * 3);
