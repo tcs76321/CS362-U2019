@@ -52,12 +52,14 @@ int main() {
 	printf("\nstop3\n");
 	
 	for(n = 0; n < 1000000 ;n++){
-		
+		printf("\nstop4\n");
 		//randomization
 		seed = floor(Random() * 2000);
 		seed = seed + 42;
 
 		initializeGame(numPlayers, k, seed, &G);
+		printf("\nstop5\n");
+		
 		p = floor(Random() * numPlayers);//player
 		G.deckCount[p] = floor(Random() * MAX_DECK);
 		G.discardCount[p] = floor(Random() * MAX_DECK);
@@ -87,7 +89,7 @@ int main() {
 		G.coins = floor(Random() * 3);
 		cC = G.coins;
 		numActsP = G.numActions + 1;
-		
+		printf("\nstop6\n");
 		//run function and save return value
 		completion = minionF(G, handpos, p, i, j, choice1, choice2);
 		
