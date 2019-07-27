@@ -92,7 +92,7 @@ int main() {
 		printf("\nstop6\n");
 		//run function and save return value
 		completion = minionF(G, handpos, p, i, j, choice1, choice2);
-		
+		printf("\nstop7\n");
 	//asserts / 'oracle area'
 		//
 		if(choice1 == 1){//coins + 2
@@ -106,12 +106,13 @@ int main() {
 		else{
 			printf("\nError\n");
 		}
-		
+		printf("\nstop8\n");
 		//verify that actions increased by 1
 		asserttrue(numActsP == G.numActions);
 
 		//verify that at least returned 0 properly
 		asserttrue(completion == 0);
+		printf("\nstop9\n");
 	}
 	
 
