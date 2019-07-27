@@ -44,7 +44,7 @@ int main() {
 	
 	int numActsP = 0;
 	int dC = 0;
-	int counterI = 0;
+	int counterI = 1;
 	int handC = 0;
 	int completion;
 	int cC = 0;
