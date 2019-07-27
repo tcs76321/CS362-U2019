@@ -25,6 +25,7 @@ int main() {
     int shuffledCards = 0;
     int j, m;
     int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+	printf("\nstop1\n");
     int remove1, remove2;
     int seed = 1000;
     int numPlayers = 2;
@@ -32,6 +33,8 @@ int main() {
 	struct gameState G;
 	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse,
 			sea_hag, tribute, smithy, council_room};
+			
+			printf("\nstop2\n");
 	
 	i = 0;
 	j = 0;
@@ -45,6 +48,8 @@ int main() {
 	int handC = 0;
 	int completion;
 	int cC = 0;
+	
+	printf("\nstop3\n");
 	
 	for(n = 0; n < 1000000 ;n++){
 		
