@@ -91,7 +91,7 @@ int main() {
 		numActsP = G.numActions + 1;
 		printf("\nstop6\n");
 		//run function and save return value
-		completion = minionF(G, handpos, p, i, j, choice1, choice2);
+		completion = minionF(&G, handpos, p, i, j, choice1, choice2);//minionF(struct gameState *state, int handPos, int currentPlayer, int i, int j, int choice1, int choice2)
 		printf("\nstop7\n");
 	//asserts / 'oracle area'
 		//
