@@ -38,6 +38,8 @@ int main() {
 	
 	int completion;
 	
+	int handC;
+	
 	for(n = 0; n < 1000000 ;n++){
 		seed = floor(Random() * 2000);
 		seed = seed + 42;
@@ -46,9 +48,10 @@ int main() {
 		initializeGame(numPlayers, k, seed, &G);
 		p = floor(Random() * numPlayers);//player
 		pp = floor(Random() * 2);//choice
-		G.deckCount[p] = floor(Random() * MAX_DECK);
-		G.discardCount[p] = floor(Random() * MAX_DECK);
-		G.handCount[p] = floor(Random() * MAX_HAND);
+		G.deckCount[p] = floor(Random() * (MAX_DECK-1));
+		G.discardCount[p] = floor(Random() * (MAX_DECK-1));
+		G.handCount[p] = floor(Random() * (MAX_HAND-1));
+		handC = G.handCount[p];
 		rrr = G.discardCount[p] + 1;//variable for discard
 		G.supplyCount[estate] = 2;
 		nB = G.numBuys + 1;
@@ -67,7 +70,7 @@ int main() {
 			//if not going to discard in first place
 			printf("\npp == 0");
 			asserttrue(rrr-1 == G.discardCount[p]);
-			
+			asserttrue(handC+1 == G.handCount[p]);
 		}
 		else{
 			//if discarding
