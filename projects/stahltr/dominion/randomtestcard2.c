@@ -34,7 +34,7 @@ int main() {
 	int k[10] = {adventurer, embargo, village, minion, mine, cutpurse,
 			sea_hag, tribute, smithy, council_room};
 			
-			printf("\nstop2\n");
+	//printf("\nstop2\n");
 	
 	i = 0;
 	j = 0;
@@ -49,16 +49,16 @@ int main() {
 	int completion;
 	int cC = 0;
 	
-	printf("\nstop3\n");
+	//printf("\nstop3\n");
 	
 	for(n = 0; n < 1000000 ;n++){
-		printf("\nstop4\n");
+		//printf("\nstop4\n");
 		//randomization
 		seed = floor(Random() * 2000);
 		seed = seed + 42;
 
 		initializeGame(numPlayers, k, seed, &G);
-		printf("\nstop5\n");
+		//printf("\nstop5\n");
 		
 		p = floor(Random() * numPlayers);//player
 		G.deckCount[p] = floor(Random() * MAX_DECK);
@@ -89,10 +89,10 @@ int main() {
 		G.coins = floor(Random() * 3);
 		cC = G.coins;
 		numActsP = G.numActions + 1;
-		printf("\nstop6\n");
+		//printf("\nstop6\n");
 		//run function and save return value
 		completion = minionF(&G, handpos, p, i, j, choice1, choice2);//minionF(struct gameState *state, int handPos, int currentPlayer, int i, int j, int choice1, int choice2)
-		printf("\nstop7\n");
+		//printf("\nstop7\n");
 	//asserts / 'oracle area'
 		//
 		if(choice1 == 1){//coins + 2
@@ -106,13 +106,13 @@ int main() {
 		else{
 			printf("\nError\n");
 		}
-		printf("\nstop8\n");
+		//printf("\nstop8\n");
 		//verify that actions increased by 1
 		asserttrue(numActsP == G.numActions);
 
 		//verify that at least returned 0 properly
 		asserttrue(completion == 0);
-		printf("\nstop9\n");
+		//printf("\nstop9\n");
 	}
 	
 
