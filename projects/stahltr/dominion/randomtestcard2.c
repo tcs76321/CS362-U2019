@@ -39,7 +39,7 @@ int main() {
 	// initialize a game state and player cards
 	initializeGame(numPlayers, k, seed, &G);
 	
-	int numActsp = 0;
+	int numActsP = 0;
 	int dC = 0;
 	int counterI = 0;
 	int handC = 0;
