@@ -36,6 +36,8 @@ int main() {
 	// initialize a game state and player cards
 	initializeGame(numPlayers, k, seed, &G);
 	
+	int completion;
+	
 	for(n = 0; n < 1000000 ;n++){
 		seed = floor(Random() * 2000);
 		seed = seed + 42;
@@ -56,7 +58,9 @@ int main() {
 			G.hand[p][0] = estate;
 			printf("\nCHANGING HAND");
 		}
-		baronF(pp, &G, p);
+		
+		completion = baronF(pp, &G, p);
+		
 		//verify that numBuys increased
 		asserttrue(G.numBuys == nB);
 		if(pp == 0){
@@ -70,6 +74,9 @@ int main() {
 			asserttrue(rrr == G.discardCount[p]);
 			asserttrue(CC+4 == G.coins);
 		}
+		
+		//verify that at least returned 0 properly
+		asserttrue(completion == 0);
 	}
 	
 	printf("\n\n----- >>>>> SUCCESS: Testing complete %s <<<<< -----\n\n\n\n\n", TESTCARD);
