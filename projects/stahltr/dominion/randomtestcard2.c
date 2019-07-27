@@ -39,30 +39,31 @@ int main() {
 	// initialize a game state and player cards
 	initializeGame(numPlayers, k, seed, &G);
 	
-	int numActs = 0;
-	
+	int numActsp = 0;
+	int dC = 0;
 	int counterI = 0;
-	
+	int handC = 0;
 	int completion;
+	int cC = 0;
 	
 	for(n = 0; n < 1000000 ;n++){
 		
+		//randomization
 		seed = floor(Random() * 2000);
 		seed = seed + 42;
-		numPlayers = floor(Random() * 3);
-		numPlayers = numPlayers + 2;
+
 		initializeGame(numPlayers, k, seed, &G);
 		p = floor(Random() * numPlayers);//player
 		G.deckCount[p] = floor(Random() * MAX_DECK);
 		G.discardCount[p] = floor(Random() * MAX_DECK);
 		G.handCount[p] = floor(Random() * MAX_HAND);
 		
-		//i = 0;
-		//j = 0;
-		//handpos = 0;
-		//choice2 = 0;
-		//choice1 = 0;
+		//record some stuff
+		dC = G.discardCount[p];
+		handC = G.handCount[p];
 		
+		//check state
+		//choice is not randomized but switched back and forth to divide half of tests to each branch
 		if(counterI == 1){
 			choice1 = 1;
 			choice2 = 0;
@@ -73,36 +74,37 @@ int main() {
 			choice2 = 1;
 			counterI = 1;
 		}
+		
+		//slight randomization and control of variables
 		i = 0;
 		j = 0;
 		handpos = 0;
 		G.coins = floor(Random() * 3);
-		numActs = G.numActions + 1;
+		cC = G.coins;
+		numActsP = G.numActions + 1;
 		
+		//run function and save return value
 		completion = minionF(G, handpos, p, i, j, choice1, choice2);
 		
-		if(){
-			// verify coins is now 2
-			asserttrue(G.coins == 2);
+	//asserts / 'oracle area'
+		//
+		if(choice1 == 1){//coins + 2
+			asserttrue(cC+2 == G.coins);
+			asserttrue(handC == G.handCount[p]);
+			asserttrue(dC == G.discardCount[p]);
 		}
-		
-		// verify that the current player didn't change
-		//asserttrue();
-		
-		// verify that numActions was increased
-		asserttrue(G.numActions == numActs);
-		
-
-		if(){
-			
+		else if(choice2 == 1){//choice2 crazy stuff
+			printf("\nchoice2\n");
 		}
 		else{
-			
+			printf("\nError\n");
 		}
+		
+		//verify that actions increased by 1
+		asserttrue(numActsP == G.numActions);
 
 		//verify that at least returned 0 properly
 		asserttrue(completion == 0);
-
 	}
 	
 
