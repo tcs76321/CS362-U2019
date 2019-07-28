@@ -82,7 +82,6 @@ int main() {
 		npR1 = G.deck[nextPlayer][0];
 		npR2 = G.deck[nextPlayer][1];
 		
-		
 		//run and record return
 		completion = tributeF(&G, currentPlayer, nextPlayer, i);
 		
@@ -98,7 +97,6 @@ int main() {
 		else if((npR1 == silver) || npR2 == silver){
 			asserttrue(coinRec + 1 < G.coins);
 		}
-		
 		
 		if((npR1 == tribute)||(npR2 == tribute)){
 			asserttrue(actRec+1 < G.numActions);
@@ -123,7 +121,6 @@ int main() {
 		}
 		
 		asserttrue((G.deckCount[nextPlayer] == cardRecNP-2) || (cardRecNP<2));
-		
 		asserttrue(completion == 0);
 		
 		//alternate player values
