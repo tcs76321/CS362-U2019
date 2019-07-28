@@ -36,23 +36,105 @@ int main() {
 	// initialize a game state and player cards
 	initializeGame(numPlayers, k, seed, &G);
 	
-	for(n = 0; n < 1000000 ;n++){
+	int completion = 1;
+	int dc1, ds1, hc1, dc2, ds2, hc2;
+	int currentPlayer = 0;
+	int	nextPlayer = 1;
+	
+	int shtuff[4] = {curse, tribute, baron, copper, silver, estate, duchy};
+	
+	int npR1, npR2;
+	int coinRec, cardRecCP, cardRecNP, actRec;
+	
+	for(n = 0; n < 100000 ;n++){
+		//randomize seed
 		seed = floor(Random() * 2000);
 		seed = seed + 42;
-		numPlayers = floor(Random() * 3);
-		numPlayers = numPlayers + 2;
+		
 		initializeGame(numPlayers, k, seed, &G);
-		p = floor(Random() * numPlayers);//player
-		pp = floor(Random() * 2);//choice
-		G.deckCount[p] = floor(Random() * MAX_DECK);
-		G.discardCount[p] = floor(Random() * MAX_DECK);
-		G.handCount[p] = floor(Random() * MAX_HAND);
-		rrr = G.discardCount[p] + 1;//variable for discard
-		G.supplyCount[estate] = 2;
-		nB = G.numBuys + 1;
-		G.coins = floor(Random() * 5);
-		CC = G.coins;
-
+		
+		//randomize things
+		G.deckCount[1] = floor(Random() * MAX_DECK);
+		G.discardCount[1] = floor(Random() * MAX_DECK);
+		G.handCount[1] = floor(Random() * MAX_HAND);
+		G.deckCount[0] = floor(Random() * MAX_DECK);
+		G.discardCount[0] = floor(Random() * MAX_DECK);
+		G.handCount[0] = floor(Random() * MAX_HAND);
+		
+		G.whoseTurn = currentPlayer;
+		
+		//record things
+		/*dc1 = G.deckCount[1];
+		ds1 = G.discardCount[1];
+		hc1 = G.handCount[1];
+		dc0 = G.deckCount[0];
+		ds0 = G.discardCount[0];
+		hc0 = G.handCount[0];*/
+		
+		coinRec = G.coins;
+		cardRecCP = G.handCount[currentPlayer];
+		cardRecNP = G.deckCount[nextPlayer];
+		actRec = G.numActions;
+		
+		//randomly assign and then record the contents of nextPlayer hand
+		G.deck[nextPlayer][0] = shtuff[floor(Random() * 4)]
+		G.deck[nextPlayer][0] = shtuff[floor(Random() * 4)]
+		npR1 = G.deck[nextPlayer][0];
+		npR2 = G.deck[nextPlayer][1];
+		
+		
+		//run and record return
+		completion = tributeF(&G, currentPlayer, nextPlayer, i);
+		
+		//oracle area with asserts
+		//assure that recorded random assigned cards indicate that what happened is correct
+		if((npR1 == copper) || npR2 == copper){
+			asserttrue(coinRec + 1 < G.coins);
+			coinRec = coinRec + 2;
+			if((npR1 == silver) || npR2 == silver){
+				asserttrue(coinRec + 1 < G.coins);
+			}
+		}
+		else if((npR1 == silver) || npR2 == silver){
+			asserttrue(coinRec + 1 < G.coins);
+		}
+		
+		
+		if((npR1 == tribute)||(npR2 == tribute)){
+			asserttrue(actRec+1 < G.numActions);
+			actRec = actRec + 2;
+			if((npR2 == baron)||(npR1 == baron)){
+				asserttrue(actRec+1 < G.numActions);
+			}
+		}
+		else if((npR2 == baron)||(npR1 == baron)){
+			asserttrue(actRec+1 < G.numActions);
+		}
+		
+		if((npR1 == estate)||(npR2 == estate)){
+			asserttrue(cardRecCP+1 < G.handCount[currentPlayer]);
+			cardRecCP = cardRecCP + 2;
+			if((npR1 == duchy)||(npR2 == duchy)){
+				asserttrue(cardRecCP+1 < G.handCount[currentPlayer]);
+			}
+		}
+		else if((npR1 == duchy)||(npR2 == duchy)){
+			asserttrue(cardRecCP+1 < G.handCount[currentPlayer]);
+		}
+		
+		asserttrue((G.deckCount[nextPlayer] == cardRecNP-2) || (cardRecNP<2));
+		
+		asserttrue(completion == 0);
+		
+		//alternate player values
+		if(currentPlayer == 0){
+			currentPlayer = 1;
+			nextPlayer = 0;
+		}
+		else{
+			currentPlayer = 0;
+			nextPlayer = 1;
+		}
 	}
 	
 
