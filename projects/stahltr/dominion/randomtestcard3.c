@@ -41,7 +41,7 @@ int main() {
 	int currentPlayer = 0;
 	int	nextPlayer = 1;
 	
-	int shtuff[4] = {curse, tribute, baron, copper, silver, estate, duchy};
+	int shtuff[7] = {curse, tribute, baron, copper, silver, estate, duchy};
 	
 	int npR1, npR2;
 	int coinRec, cardRecCP, cardRecNP, actRec;
