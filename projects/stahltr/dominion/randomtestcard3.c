@@ -77,8 +77,8 @@ int main() {
 		actRec = G.numActions;
 		
 		//randomly assign and then record the contents of nextPlayer hand
-		G.deck[nextPlayer][0] = shtuff[floor(Random() * 4)];
-		G.deck[nextPlayer][0] = shtuff[floor(Random() * 4)];
+		G.deck[nextPlayer][0] = shtuff[(int)(floor(Random() * 4))];
+		G.deck[nextPlayer][1] = shtuff[(int)(floor(Random() * 4))];
 		npR1 = G.deck[nextPlayer][0];
 		npR2 = G.deck[nextPlayer][1];
 		
