@@ -40,7 +40,7 @@ int main() {
 	
 	int handC;
 	
-	for(n = 0; n < 1000000 ;n++){
+	for(n = 0; n < 100000 ;n++){
 		seed = floor(Random() * 2000);
 		seed = seed + 42;
 		numPlayers = floor(Random() * 3);

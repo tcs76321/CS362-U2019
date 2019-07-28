@@ -48,10 +48,11 @@ int main() {
 	int handC = 0;
 	int completion;
 	int cC = 0;
+	int errorC = 0;
 	
 	//printf("\nstop3\n");
 	
-	for(n = 0; n < 1000000 ;n++){
+	for(n = 0; n < 100000 ;n++){
 		//printf("\nstop4\n");
 		//randomization
 		seed = floor(Random() * 2000);
@@ -105,6 +106,7 @@ int main() {
 		}
 		else{
 			printf("\nError\n");
+			errorC++;
 		}
 		//printf("\nstop8\n");
 		//verify that actions increased by 1
@@ -112,6 +114,8 @@ int main() {
 
 		//verify that at least returned 0 properly
 		asserttrue(completion == 0);
+		printf("\ntotal errors:%d", errorC);
+		
 		//printf("\nstop9\n");
 	}
 	
