@@ -65,6 +65,9 @@ int main() {
 		G.deckCount[p] = floor(Random() * MAX_DECK);
 		G.discardCount[p] = floor(Random() * MAX_DECK);
 		G.handCount[p] = floor(Random() * MAX_HAND);
+		if(G.handCount[p] == 4){
+			G.handCount[p] = 3;
+		}
 		
 		//record some stuff
 		dC = G.discardCount[p];
@@ -102,7 +105,8 @@ int main() {
 			asserttrue(dC == G.discardCount[p]);
 		}
 		else if(choice2 == 1){//choice2 crazy stuff
-			printf("\nchoice2\n");
+			asserttrue(G.handCount[p] == 4);//this line ensures that the right number of cards are in hand AND that hand is discarded because I set the players handCount to always be NOT 4
+			//asserttrue();
 		}
 		else{
 			printf("\nError\n");
@@ -114,11 +118,10 @@ int main() {
 
 		//verify that at least returned 0 properly
 		asserttrue(completion == 0);
-		printf("\ntotal errors:%d", errorC);
 		
 		//printf("\nstop9\n");
 	}
 	
-
+	printf("\ntotal errors:%d", errorC);
 	printf("\n\n----- >>>>> SUCCESS: Testing complete %s <<<<< -----\n\n\n\n\n", TESTCARD);
 }
