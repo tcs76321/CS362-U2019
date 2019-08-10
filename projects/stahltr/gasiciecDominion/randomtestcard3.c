@@ -36,7 +36,7 @@ int main() {
 	// initialize a game state and player cards
 	initializeGame(numPlayers, k, seed, &G);
 	
-	int completion = 1;
+	//int completion = 1;
 	int dc1, ds1, hc1, dc2, ds2, hc2;
 	int currentPlayer = 0;
 	int	nextPlayer = 1;
@@ -84,7 +84,7 @@ int main() {
 		
 		//run and record return
 		//completion = tributeF(&G, currentPlayer, nextPlayer, i);
-		completion = playTribute(&G, nextPlayer, currentPlayer);
+		playTribute(&G, nextPlayer, currentPlayer);
 		
 		//oracle area with asserts
 		//assure that recorded random assigned cards indicate that what happened is correct
@@ -122,7 +122,7 @@ int main() {
 		}
 		
 		asserttrue((G.deckCount[nextPlayer] == cardRecNP-2) || (cardRecNP<2));
-		asserttrue(completion == 0);
+		//asserttrue(completion == 0);
 		
 		//alternate player values
 		if(currentPlayer == 0){

@@ -36,7 +36,7 @@ int main() {
 	// initialize a game state and player cards
 	initializeGame(numPlayers, k, seed, &G);
 	
-	int completion;
+	//int completion;
 	
 	int handC;
 	
@@ -63,7 +63,7 @@ int main() {
 		}
 		
 		//completion = baronF(pp, &G, p);
-		completion = playBaron(pp, p, &G);
+		playBaron(pp, p, &G);
 		
 		
 		//verify that numBuys increased
@@ -81,7 +81,7 @@ int main() {
 		}
 		
 		//verify that at least returned 0 properly
-		asserttrue(completion == 0);
+		//asserttrue(completion == 0);
 	}
 	
 	printf("\n\n----- >>>>> SUCCESS: Testing complete %s <<<<< -----\n\n\n\n\n", TESTCARD);

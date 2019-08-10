@@ -46,7 +46,7 @@ int main() {
 	int dC = 0;
 	int counterI = 1;
 	int handC = 0;
-	int completion;
+	//int completion;
 	int cC = 0;
 	int errorC = 0;
 	
@@ -97,7 +97,7 @@ int main() {
 		//run function and save return value
 		
 		//completion = minionF(&G, handpos, p, i, j, choice1, choice2);//minionF(struct gameState *state, int handPos, int currentPlayer, int i, int j, int choice1, int choice2)
-		completion = playMinion(choice1, choice2, &G, p, handPos);
+		playMinion(choice1, choice2, &G, p, handPos);
 		
 		//printf("\nstop7\n");
 	//asserts / 'oracle area'
@@ -120,7 +120,7 @@ int main() {
 		asserttrue(numActsP == G.numActions);
 
 		//verify that at least returned 0 properly
-		asserttrue(completion == 0);
+		//asserttrue(completion == 0);
 		
 		//printf("\nstop9\n");
 	}
