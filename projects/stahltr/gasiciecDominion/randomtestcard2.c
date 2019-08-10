@@ -24,7 +24,7 @@ int main() {
     int xtraCoins = 0;
     int shuffledCards = 0;
     int j, m;
-    int handpos = 0, choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
+    int choice1 = 0, choice2 = 0, choice3 = 0, bonus = 0;
 	printf("\nstop1\n");
     int remove1, remove2;
     int seed = 1000;
@@ -51,6 +51,8 @@ int main() {
 	int errorC = 0;
 	
 	//printf("\nstop3\n");
+	
+	int handPos;
 	
 	for(n = 0; n < 100000 ;n++){
 		//printf("\nstop4\n");
@@ -89,7 +91,7 @@ int main() {
 		//slight randomization and control of variables
 		i = 0;
 		j = 0;
-		handpos = 0;
+		handPos = 0;
 		G.coins = floor(Random() * 3);
 		cC = G.coins;
 		numActsP = G.numActions + 1;
