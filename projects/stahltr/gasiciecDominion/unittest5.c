@@ -46,7 +46,7 @@ int main() {
 	int rrr = testG.discardCount[0];
 	testG.supplyCount[estate] = 2;
 	int nextPlayer = 1;
-	playMine(choice1, choice2, &testG, currentPlayer, handPos);
+	playMine(choice1, choice2, &testG, currentPlayer, handpos);
 	//mineF(&testG, i, j, choice1, choice2, currentPlayer, handpos);
 	//verify that an estate was not removed from supply
 	asserttrue(testG.supplyCount[estate] == 2);
