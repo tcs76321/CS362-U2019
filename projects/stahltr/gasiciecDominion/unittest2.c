@@ -72,7 +72,7 @@ int main() {
 	currentPlayer = 0;
 	testG.coins = 0;
 	numActs = testG.numActions + 1;
-	playMinion(choice1, choice2, &testG, currentPlayer, handPos);
+	playMinion(choice1, choice2, &testG, currentPlayer, handpos);
 	// verify that the coins are still 0
 	asserttrue(testG.coins == 0);
 	// verify that the current player didn't change

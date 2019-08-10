@@ -63,7 +63,7 @@ int main() {
 	choice1 = 1;
 	currentPlayer = 0;
 	testG.coins = 1;
-	playMine(choice1, choice2, &testG, currentPlayer, handPos);
+	playMine(choice1, choice2, &testG, currentPlayer, handpos);
 	//mineF(&testG, i, j, choice1, choice2, currentPlayer, handpos);
 	printf("\n coins are:%d\n", testG.coins);
 	//verify that coins were not increased by 4
